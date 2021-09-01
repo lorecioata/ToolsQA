@@ -1,0 +1,32 @@
+{
+  "name": "smoke_tests",
+  "version": "1.0.0",
+  "description": "The application to test is ToolsQA Website that can be found and accessed at: https://demoqa.com/",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio wdio.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lorenacioata/toolsqa-automation-tests.git"
+  },
+  "author": "Lorena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lorenacioata/toolsqa-automation-tests/issues"
+  },
+  "homepage": "https://github.com/lorenacioata/toolsqa-automation-tests#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/register": "^7.15.3",
+    "@wdio/cli": "^7.11.1",
+    "@wdio/local-runner": "^7.11.1",
+    "@wdio/mocha-framework": "^7.11.1",
+    "@wdio/spec-reporter": "^7.10.1",
+    "chromedriver": "^92.0.2",
+    "prettier": "^2.3.2",
+    "wdio-chromedriver-service": "^7.2.0"
+  }
+}
