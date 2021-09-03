@@ -54,13 +54,19 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
+        
         browserName: 'chrome',
+        
         acceptInsecureCerts: true
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
-    }],
+    },
+        {
+            browserName: 'firefox'
+        },
+    ],
     //
     // ===================
     // Test Configurations
@@ -130,8 +136,11 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
-    port: 4444,
+    
+    reporters: ['spec',['allure', {
+        outputDir: 'allure-results',
+    }]],
+    //port: 4444,
 
     
     //
