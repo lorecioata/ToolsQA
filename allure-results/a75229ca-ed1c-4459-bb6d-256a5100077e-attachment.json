@@ -1,0 +1,4 @@
+{
+  "script": "return (async () => {\n      document.querySelector('.card=Elements').click();\n    }).apply(null, arguments)",
+  "args": []
+}

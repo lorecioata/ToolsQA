@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "wdio wdio.conf.js",
-    "report": "npx generate allure --clean && allure open"
+    "report": "npx generate allure-results/ --clean && allure open"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "wdio-chromedriver-service": "^7.2.0"
   },
   "dependencies": {
-    "allure-commandline": "^2.13.8"
+    "allure-commandline": "^2.13.8",
+    "set-blocking": "^2.0.0"
   }
 }

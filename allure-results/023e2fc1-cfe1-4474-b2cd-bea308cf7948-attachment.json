@@ -1,0 +1,4 @@
+{
+  "script": "return (async () => {\n      //document.querySelector('.card').click()\n      let card = $$('.card mt-4 top-card')[0];\n      await card.click();\n    }).apply(null, arguments)",
+  "args": []
+}

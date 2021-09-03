@@ -1,0 +1,4 @@
+{
+  "script": "return (async () => {\n      document.querySelectorAll('.card')[2].click();\n      await $$('.card')[2].click();\n    }).apply(null, arguments)",
+  "args": []
+}

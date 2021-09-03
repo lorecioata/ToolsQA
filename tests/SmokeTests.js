@@ -35,14 +35,44 @@ describe('Smoke Testing', () => {
     it('Check if all the entities can be accessed on HomePage', async () => {
         HomePage.ElementsEntityIsVisible()
         HomePage.ElementsEntityClick()
-        const mainheader = HomePage.MainHeader
-       
-        browser.execute( async() =>  {
-            document.querySelector('.card').click()
-        } )
-
-        await expect(mainheader).toHaveText('Elements')
+        const mainheader1 = await HomePage.MainHeader1
+        await expect(mainheader1).toHaveText('Elements')
         
+        App.openHomePage()
+
+        HomePage.FormsEntityIsVisible()
+        HomePage.FormsEntityClick()
+        const mainheader2 = await HomePage.MainHeader2
+        await expect(mainheader2).toHaveText('Forms')
+
+        App.openHomePage()
+
+        HomePage.AFWEntityIsVisible()
+        HomePage.AFWEntityClick()
+        const mainheader3 = await HomePage.MainHeader3
+        await expect(mainheader3).toHaveText('Alerts, Frame & Windows')
+
+        App.openHomePage()
+
+        HomePage.WidgetsEntityIsVisible()
+        HomePage.WidgetsEntityClick()
+        const mainheader4 = await HomePage.MainHeader4
+        await expect(mainheader4).toHaveText('Widgets')
+
+        App.openHomePage()
+
+        HomePage.InteractionsEntityisVisible()
+        HomePage.InteractionsEntityClick()
+        const mainheader5 = await HomePage.MainHeader5
+        await expect(mainheader5).toHaveText('Interactions')
+
+        App.openHomePage()
+
+        HomePage.BookStoreAppEntityisVisible()
+        HomePage.BookStoreAppEntityClick()
+        const mainheader6 = await HomePage.MainHeader6
+        await expect(mainheader6).toHaveText('Book Store')
+
     });
 
 
