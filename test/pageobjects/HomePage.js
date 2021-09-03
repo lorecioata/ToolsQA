@@ -2,37 +2,51 @@ import Base from './Base'
 
 class HomePage extends Base {
     get ToolsQaImg() { return $('img') }
-    get h5() { return $('h5')}
-    get ElementsEntity() { return $('#app > div > div > div.home-body > div > div:nth-child(1)') }
-    get FormsEntity() { return $('#app > div > div > div.home-body > div > div:nth-child(2)') }
-    get AFWEntity() { return $('#app > div > div > div.home-body > div > div:nth-child(3)') } 
-    get WidgetsEntity() { return $('#app > div > div > div.home-body > div > div:nth-child(4)') }
-    get InteractionsEntity() { return $('#app > div > div > div.home-body > div > div:nth-child(5)') }
-    get BookStoreAppEntity() { return $('#app > div > div > div.home-body > div > div:nth-child(6)') }
+
+    get h5_Elements() { return $('h5=Elements') }
+    get h5_Forms() { return $('h5=Forms') }
+    get h5_AFW() { return $('h5=Alerts, Frame & Windows') }
+    get h5_Widgets() { return $('h5=Widgets') }
+    get h5_Interactions() { return $('h5=Interactions')}
+    get h5_BookStoreApp() { return $('h5=Book Store Application')}
+
+    get ElementsEntity() { return $('#app > div > div > div.home-body > div > div:nth-child(1) > div > div.avatar.mx-auto.white > svg > path') }
+    get FormsEntity() { return $('') }
+    get AFWEntity() { return $('') } 
+    get WidgetsEntity() { return $('') }
+    get InteractionsEntity() { return $('') }
+    get BookStoreAppEntity() { return $('') }
+
     get MainHeader() { return  $('.main-header')}
     ToolsQaImgIsVisible(){ 
         this.ToolsQaImg.waitForExist()
     }
     ElementsEntityIsVisible(){
-        this.ElementsEntity.waitForExist()
+        this.h5_Elements.waitForExist()
+    }
+    ElementsEntityClick(){
+        this.h5_Elements.click()
     }
     FormsEntityIsVisible(){
-        this.FormsEntity.waitForExist()
+        this.h5_Forms.waitForExist()
     }
     AFWEntityIsVisible(){
-        this.AFWEntity.waitForExist()
+        this.h5_AFW.waitForExist()
     }
     WidgetsEntityIsVisible()
     {
-        this.WidgetsEntity.waitForExist()
+        this.h5_Widgets.waitForExist()
     }
     InteractionsEntityisVisible()
     {
-        this.InteractionsEntity.waitForExist()
+        this.h5_Interactions.waitForExist()
     }
     BookStoreAppEntityisVisible()
     {
-        this.BookStoreAppEntity.waitForExist()
+        this.h5_BookStoreApp.waitForExist()
+    }
+    MainHeaderisVisible(){
+        this.MainHeader.waitForExist()
     }
 }
 
