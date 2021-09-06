@@ -1,5 +1,5 @@
-import App from "../test/pageobjects/App.js"
-import HomePage from "../test/pageobjects/HomePage.js"
+import {App} from "D:/InternshipAssist/ToolsQA/toolsqa-automation-tests/test/pageobjects/App"
+import {HomePage} from "D:/InternshipAssist/ToolsQA/toolsqa-automation-tests/test/pageobjects/HomePage"
 
 describe('Smoke Testing', () => {
     it('Check if page opens and ToolsQA logo appears', async () => {

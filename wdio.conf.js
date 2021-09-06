@@ -238,6 +238,12 @@ exports.config = {
      */
     // afterSuite: function (suite) {
     // },
+    //-----------------------------------------------------------------------------------------------------------------------------
+    // afterStep: async function (test, scenario, { error, duration, passed}) {
+    //     if(error) {
+    //         await browser.takeScreenshot();
+    //     }
+    // }
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name
