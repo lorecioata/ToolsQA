@@ -1,6 +1,13 @@
 class App {
-    openHomePage() { browser.url("https://demoqa.com/") }
-    openLoginPage() {  browser.url("https://demoqa.com/login") }
-    openBookStorePage() {  browser.url("https://demoqa.com/books") }
+  async openHomePage() {
+    await browser.url("https://demoqa.com/");
+  }
+  async openLoginPage() {
+    await browser.url("https://demoqa.com/login");
+  }
+  async openBookStorePage() {
+    await browser.url("https://demoqa.com/books");
+  }
 }
-export default new App()
+
+module.exports = new App();
