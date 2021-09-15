@@ -24,5 +24,4 @@ class HomePage {
     return $$(".main-header")[0];
   }
 }
-
 module.exports = new HomePage();
