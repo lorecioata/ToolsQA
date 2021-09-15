@@ -143,7 +143,15 @@ exports.config = {
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
 
-  reporters: ["spec"],
+  reporters: [
+    "spec",
+    [
+      "allure",
+      {
+        outputDir: "allure-results",
+      },
+    ],
+  ],
   //port: 4444,
 
   //
@@ -241,11 +249,11 @@ exports.config = {
   // afterSuite: function (suite) {
   // },
   //-----------------------------------------------------------------------------------------------------------------------------
-  // afterStep: async function (test, scenario, { error, duration, passed}) {
-  //     if(error) {
-  //         await browser.takeScreenshot();
-  //     }
-  // }
+  afterStep: async function (test, scenario, { error, duration, passed }) {
+    if (error) {
+      await browser.takeScreenshot();
+    }
+  },
   /**
    * Runs after a WebdriverIO command gets executed
    * @param {String} commandName hook command name
