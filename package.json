@@ -22,18 +22,15 @@
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/register": "^7.15.3",
-    "@wdio/allure-reporter": "^7.10.1",
     "@wdio/cli": "^7.11.1",
     "@wdio/local-runner": "^7.11.1",
     "@wdio/mocha-framework": "^7.11.1",
     "@wdio/spec-reporter": "^7.10.1",
     "chromedriver": "^92.0.2",
-    "geckodriver": "^2.0.4",
     "prettier": "^2.3.2",
     "wdio-chromedriver-service": "^7.2.0"
   },
   "dependencies": {
-    "allure-commandline": "^2.13.8",
-    "set-blocking": "^2.0.0"
+    "chai": "^4.3.4"
   }
 }
