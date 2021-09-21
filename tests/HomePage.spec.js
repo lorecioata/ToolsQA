@@ -3,7 +3,7 @@ const expect = chai.expect;
 const App = require("../test/pageobjects/App");
 const HomePage = require("../test/pageobjects/HomePage");
 
-describe("Check Home Page functionality", () => {
+describe("Check Home Page smoke tests functionality", () => {
   it("Check if page opens and ToolsQA logo appears", async () => {
     await App.openHomePage();
     await (await HomePage.logoImg).waitForDisplayed();
