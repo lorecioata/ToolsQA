@@ -22,7 +22,10 @@ exports.config = {
   //
   specs: ["./tests/**.js"],
   // Patterns to exclude.
-  //exclude: ["./tests/HomePage.spec.js"],
+  exclude: [
+    "./tests/HomePage.spec.js",
+    "./tests/login-register-logout-smoke.spec.js",
+  ],
   //
   // ============
   // Capabilities
