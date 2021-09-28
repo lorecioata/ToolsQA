@@ -8,6 +8,9 @@ class App {
   async openBookStorePage() {
     await browser.url("https://demoqa.com/books");
   }
+  async openProfilePage() {
+    await browser.url("https://demoqa.com/profile");
+  }
 }
 
 module.exports = new App();

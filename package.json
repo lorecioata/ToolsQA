@@ -30,7 +30,7 @@
     "@wdio/spec-reporter": "^7.10.1",
     "chromedriver": "^92.0.2",
     "prettier": "^2.3.2",
-    "wdio-chromedriver-service": "^7.2.0"
+    "protractor": "^7.0.0"
   },
   "dependencies": {
     "allure-commandline": "^2.13.8",

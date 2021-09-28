@@ -25,6 +25,7 @@ exports.config = {
   exclude: [
     "./tests/HomePage.spec.js",
     "./tests/login-register-logout-smoke.spec.js",
+    "./tests/book-store-smoke.spec.js",
   ],
   //
   // ============
@@ -116,13 +117,17 @@ exports.config = {
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
   services: [
-    "chromedriver",
     [
       "selenium-standalone",
-      { drivers: { firefox: "0.29.1", chrome: true, chromiumedge: "latest" } },
+      {
+        drivers: {
+          firefox: "latest",
+          chrome: "latest",
+          chromiumedge: "latest",
+        },
+      },
     ],
   ],
-
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
   // see also: https://webdriver.io/docs/frameworks

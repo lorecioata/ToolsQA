@@ -9,7 +9,7 @@ class BookStore {
     return $("=Git Pocket Guide");
   }
   get addToCollectionBtn() {
-    return $("#addNewRecordButton");
+    return $$("#addNewRecordButton")[1];
   }
   get notLoggedInLabel() {
     return $("#notLoggin-label");
