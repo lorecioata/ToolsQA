@@ -17,7 +17,10 @@ class LoginLogout {
   get welcomeMsg() {
     return $("#userForm");
   }
-  async fillLoginForm() {
+  get alreadyLoggedIn() {
+    return $("#loading-label");
+  }
+  async loginWithValidData() {
     await this.loginUserName.clearValue();
     await this.loginUserName.addValue("test_1");
     await this.loginPassword.clearValue();

@@ -22,7 +22,7 @@ exports.config = {
   //
   specs: ["./tests/**.js"],
   // Patterns to exclude.
-  //exclude: ["./tests/HomePage.spec.js"],
+  exclude: ["./tests/HomePage.spec.js"],
   //
   // ============
   // Capabilities
@@ -113,10 +113,15 @@ exports.config = {
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
   services: [
-    "chromedriver",
     [
       "selenium-standalone",
-      { drivers: { firefox: "0.29.1", chrome: true, chromiumedge: "latest" } },
+      {
+        drivers: {
+          firefox: "latest",
+          chrome: "latest",
+          chromiumedge: "latest",
+        },
+      },
     ],
   ],
 
