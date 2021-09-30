@@ -1,12 +1,12 @@
 class BookStore {
-  get bookStoreBtn() {
-    return $("#item-2*=Book Store");
-  }
   get profileBtn() {
-    return $("#item-3*=Profile");
+    return $$("#item-3")[4];
+  }
+  get bookStoreBtn() {
+    return $$("#item-2")[4];
   }
   get bookGitGuide() {
-    return $("=Git Pocket Guide");
+    return $(".mr-2");
   }
   get addToCollectionBtn() {
     return $$("#addNewRecordButton")[1];
@@ -15,28 +15,25 @@ class BookStore {
     return $("#notLoggin-label");
   }
   get inProfileLoginBtn() {
-    return $("=login");
+    return $("#notLoggin-label > a:nth-child(1)");
   }
   get goToBookStoreBtn() {
     return $("#gotoStore");
   }
-  get bookStoreTitle() {
-    return $(".main-header=Book Store");
-  }
-  async accessBookStore() {
-    await this.bookStoreBtn.scrollIntoView();
-    await this.bookStoreBtn.click();
-  }
-  async accessBookGitGuide() {
-    await this.bookGitGuide.click();
+  async scrollAndAccessPage(page) {
+    await page.scrollIntoView();
+    await page.waitForDisplayed();
+    await page.click();
   }
   async accessProfile() {
     await this.profileBtn.scrollIntoView();
+    await this.profileBtn.waitForDisplayed();
     await this.profileBtn.click();
   }
-  async goToBookStore() {
-    await this.goToBookStoreBtn.scrollIntoView();
-    await this.goToBookStoreBtn.click();
+  async accessBookStore() {
+    await this.bookStoreBtn.scrollIntoView();
+    await this.bookStoreBtn.waitForDisplayed();
+    await this.bookStoreBtn.click();
   }
 }
 module.exports = new BookStore();

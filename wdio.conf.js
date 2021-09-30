@@ -23,9 +23,10 @@ exports.config = {
   specs: ["./tests/**.js"],
   // Patterns to exclude.
   exclude: [
-    "./tests/HomePage.spec.js",
+    // "./tests/HomePage.spec.js",
     "./tests/login-register-logout-smoke.spec.js",
     "./tests/book-store-smoke.spec.js",
+    "./tests/profile-smoke.spec.js",
   ],
   //
   // ============
@@ -60,6 +61,13 @@ exports.config = {
       browserName: "chrome",
 
       acceptInsecureCerts: true,
+      "goog: chromeOptions": {
+        args: [
+          "disable-infobars",
+          "disable-popup-blocking",
+          "disable-notifications",
+        ],
+      },
       // If outputDir is provided WebdriverIO can capture driver session logs
       // it is possible to configure which logTypes to include/exclude.
       // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
