@@ -1,27 +1,25 @@
-const chai = require("chai");
-const expect = chai.expect;
+const { expect } = require("chai");
 const App = require("../test/pageobjects/App");
 const LoginLogout = require("../test/pageobjects/LoginLogout");
 
 describe("Login and Logout smoke tests functionality", () => {
-  it("Check Login button when required fields are filled in with valid data", async () => {
+  beforeEach(async () => {
     await App.openLoginPage();
-    await LoginLogout.fillLoginForm();
+    await LoginLogout.loginWithValidData();
+  });
+  it("Check if user can login when required fields are filled in with valid data", async () => {
+    await (await LoginLogout.loggedInUserName).waitForDisplayed();
     let loggedInUserName = await (await LoginLogout.loggedInUserName).getText();
-    await expect(await loggedInUserName).to.equal("test_1");
+    expect(loggedInUserName).to.equal("test_1");
+    await LoginLogout.logoutButton.click();
   });
   it("Check if Log out button redirects user to Login page", async () => {
-    await App.openLoginPage();
-    let alreadyLoggedIn = $("#loading-label");
-    if (alreadyLoggedIn.isDisplayed()) {
-      await (await LoginLogout.logoutButton).click();
-      let welcomeMsg = await (await LoginLogout.welcomeMsg).getText();
-      await expect(await welcomeMsg).to.contain("Login in Book Store");
-    } else {
-      await LoginLogout.fillLoginForm();
-      await (await LoginLogout.logoutButton).click();
-      let welcomeMsg = await (await LoginLogout.welcomeMsg).getText();
-      await expect(await welcomeMsg).to.contain("Login in Book Store");
+    if (await (await LoginLogout.loginButton).isDisplayed()) {
+      await LoginLogout.loginWithValidData();
     }
+    await (await LoginLogout.logoutButton).click();
+    await (await LoginLogout.welcomeMsg).waitForDisplayed();
+    let welcomeMsg = await (await LoginLogout.welcomeMsg).getText();
+    expect(welcomeMsg).to.contain("Login in Book Store");
   });
 });
