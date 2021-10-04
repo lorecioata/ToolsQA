@@ -15,13 +15,18 @@ describe("Check Home Page smoke tests functionality", () => {
     expect(await (await HomePage.logoImg).isDisplayed()).to.be.true;
   });
   it("Check if all the six entities can be viewed on Home Page", async () => {
-    let cards = await HomePage.cards();
-    expect(await cards[0].getText()).contains(cardsNames.Elements);
-    expect(await cards[1].getText()).contains(cardsNames.Forms);
-    expect(await cards[2].getText()).contains(cardsNames.Alerts);
-    expect(await cards[3].getText()).contains(cardsNames.Widgets);
-    expect(await cards[4].getText()).contains(cardsNames.Interactions);
-    expect(await cards[5].getText()).contains(cardsNames.BookStore);
+    const cards = [
+      "Elements",
+      "Forms",
+      "Alerts, Frame & Windows",
+      "Widgets",
+      "Interactions",
+      "Book Store Application",
+    ];
+    let cardsArray = await HomePage.cards();
+    for (i = 0; i < cardsArray.length; i++) {
+      expect(await cardsArray[i].getText()).contains(cards[i]);
+    }
   });
 
   it("Check if all the entities can be accessed on HomePage", async () => {
