@@ -2,26 +2,20 @@ class HomePage {
   get logoImg() {
     return $("#app img");
   }
-  get elementsCard() {
-    return $$(".card")[0];
-  }
-  get formsCard() {
-    return $$(".card")[1];
-  }
-  get alertsCard() {
-    return $$(".card")[2];
-  }
-  get widgetsCard() {
-    return $$(".card")[3];
-  }
-  get interactionsCard() {
-    return $$(".card")[4];
-  }
-  get bookStoreCard() {
-    return $$(".card")[5];
-  }
   get mainHeaderOfEntity() {
-    return $$(".main-header")[0];
+    return $(".pattern-backgound");
+  }
+  async mainHeaders() {
+    let mainHeader = await $$(function () {
+      return this.document.querySelectorAll(".pattern-backgound");
+    });
+    return mainHeader;
+  }
+  async cards() {
+    let card = await $$(function () {
+      return this.document.querySelectorAll(".card");
+    });
+    return card;
   }
 }
 module.exports = new HomePage();

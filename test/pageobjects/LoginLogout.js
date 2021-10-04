@@ -21,6 +21,9 @@ class LoginLogout {
     return $("#loading-label");
   }
   async loginWithValidData() {
+    await this.loginUserName.waitForDisplayed();
+    await this.loginPassword.waitForDisplayed();
+    await this.loginButton.waitForDisplayed();
     await this.loginUserName.clearValue();
     await this.loginUserName.addValue("test_1");
     await this.loginPassword.clearValue();

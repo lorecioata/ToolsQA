@@ -5,8 +5,11 @@ class Profile {
   get okDeleteBookModal() {
     return $("#closeSmallModal-ok");
   }
-  get deleteAccountBtn() {
-    return $$("#submit")[1];
+  async deleteAccountBtn() {
+    let deleteAccountBtn = await $$(function () {
+      return this.document.querySelectorAll("#submit");
+    });
+    return deleteAccountBtn;
   }
 }
 module.exports = new Profile();

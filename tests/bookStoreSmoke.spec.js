@@ -1,11 +1,15 @@
 const { expect } = require("chai");
 const App = require("../test/pageobjects/App");
 const BookStore = require("../test/pageobjects/BookStore");
+const HomePage = require("../test/pageobjects/HomePage");
 const LoginLogout = require("../test/pageobjects/LoginLogout");
 
 describe("Book Store smoke tests functionality", () => {
   beforeEach(async () => {
     await App.openBookStorePage();
+    if (await App.ad.isDisplayed()) {
+      await App.removeAd();
+    }
     if (await (await LoginLogout.logoutButton).isDisplayed()) {
       await BookStore.scrollAndAccessPage(await LoginLogout.logoutButton);
     }
@@ -41,7 +45,7 @@ describe("Book Store smoke tests functionality", () => {
       await LoginLogout.loginWithValidData();
     }
     await BookStore.scrollAndAccessPage(await BookStore.goToBookStoreBtn);
-    let bookStoreTitle = await (await BookStore.bookStoreTitle).getText();
+    let bookStoreTitle = await (await HomePage.mainHeaderOfEntity).getText();
     expect(bookStoreTitle).to.contain("Book Store");
   });
 });

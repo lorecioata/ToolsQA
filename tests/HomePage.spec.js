@@ -1,69 +1,61 @@
-const chai = require("chai");
-const expect = chai.expect;
+const { expect } = require("chai");
+const cardsNames = require("../objects/homePage");
 const App = require("../test/pageobjects/App");
 const HomePage = require("../test/pageobjects/HomePage");
 
 describe("Check Home Page smoke tests functionality", () => {
-  it("Check if page opens and ToolsQA logo appears", async () => {
+  beforeEach(async () => {
     await App.openHomePage();
+    if (await App.ad.isDisplayed()) {
+      await App.removeAd();
+    }
+  });
+  it("Check if page opens and ToolsQA logo appears", async () => {
     await (await HomePage.logoImg).waitForDisplayed();
-    await expect(await (await HomePage.logoImg).isDisplayed()).to.be.true;
+    expect(await (await HomePage.logoImg).isDisplayed()).to.be.true;
   });
   it("Check if all the six entities can be viewed on Home Page", async () => {
-    const elementsCard = await (await HomePage.elementsCard).getText();
-    await expect(await elementsCard).contains("Elements");
-
-    const formsCard = await (await HomePage.formsCard).getText();
-    await expect(await formsCard).contains("Forms");
-
-    const alertsCard = await (await HomePage.alertsCard).getText();
-    await expect(await alertsCard).contains("Alerts, Frame & Windows");
-
-    const widgetsCard = await (await HomePage.widgetsCard).getText();
-    await expect(await widgetsCard).contains("Widgets");
-
-    const interactionsCard = await (await HomePage.interactionsCard).getText();
-    await expect(await interactionsCard).contains("Interactions");
-
-    const bookStoreCard = await (await HomePage.bookStoreCard).getText();
-    await expect(await bookStoreCard).contains("Book Store Application");
+    let cards = await HomePage.cards();
+    expect(await cards[0].getText()).contains(cardsNames.Elements);
+    expect(await cards[1].getText()).contains(cardsNames.Forms);
+    expect(await cards[2].getText()).contains(cardsNames.Alerts);
+    expect(await cards[3].getText()).contains(cardsNames.Widgets);
+    expect(await cards[4].getText()).contains(cardsNames.Interactions);
+    expect(await cards[5].getText()).contains(cardsNames.BookStore);
   });
 
   it("Check if all the entities can be accessed on HomePage", async () => {
-    await (await HomePage.elementsCard).click();
-    var elementsHeader = await (await HomePage.mainHeaderOfEntity).getText();
-    await expect(await elementsHeader).contains("Elements");
+    let cards = await HomePage.cards();
+    await cards[0].click();
+    let elementsHeader = await (await HomePage.mainHeaderOfEntity).getText();
+    expect(elementsHeader).contains(cardsNames.Elements);
+    await browser.back();
 
-    await browser.url("https://demoqa.com/");
+    await cards[1].click();
+    let formsHeader = await (await HomePage.mainHeaderOfEntity).getText();
+    expect(formsHeader).contains(cardsNames.Forms);
+    await browser.back();
 
-    await (await HomePage.formsCard).click();
-    var formsHeader = await (await HomePage.mainHeaderOfEntity).getText();
-    await expect(await formsHeader).contains("Forms");
+    await cards[2].click();
+    let alertsHeader = await (await HomePage.mainHeaderOfEntity).getText();
+    expect(alertsHeader).contains(cardsNames.Alerts);
+    await browser.back();
 
-    await browser.url("https://demoqa.com/");
+    await cards[3].click();
+    let widgetsHeader = await (await HomePage.mainHeaderOfEntity).getText();
+    expect(widgetsHeader).contains(cardsNames.Widgets);
+    await browser.back();
 
-    await (await HomePage.alertsCard).click();
-    var alertsHeader = await (await HomePage.mainHeaderOfEntity).getText();
-    await expect(await alertsHeader).contains("Alerts, Frame & Windows");
-
-    await browser.url("https://demoqa.com/");
-
-    await (await HomePage.widgetsCard).click();
-    var widgetsHeader = await (await HomePage.mainHeaderOfEntity).getText();
-    await expect(await widgetsHeader).contains("Widgets");
-
-    await browser.url("https://demoqa.com/");
-
-    await (await HomePage.interactionsCard).click();
-    var interactionsHeader = await (
+    await cards[4].click();
+    let interactionsHeader = await (
       await HomePage.mainHeaderOfEntity
     ).getText();
-    await expect(await interactionsHeader).contains("Interactions");
+    expect(interactionsHeader).contains(cardsNames.Interactions);
+    await browser.back();
 
-    await browser.url("https://demoqa.com/");
-
-    await (await HomePage.bookStoreCard).click();
-    var bookStoreHeader = await (await HomePage.mainHeaderOfEntity).getText();
-    await expect(await bookStoreHeader).contains("Book Store");
+    await cards[5].click();
+    let bookStoreHeader = await (await HomePage.mainHeaderOfEntity).getText();
+    expect(bookStoreHeader).contains(cardsNames.BookStore);
+    await browser.back();
   });
 });
