@@ -20,9 +20,9 @@ exports.config = {
   // then the current working directory is where your `package.json` resides, so `wdio`
   // will be called from there.
   //
-  specs: ["./tests/**.js"],
+  specs: ["./tests/**.spec.js"],
   // Patterns to exclude.
-  exclude: ["./tests/HomePage.spec.js"],
+  // exclude: [],
   //
   // ============
   // Capabilities
@@ -56,6 +56,13 @@ exports.config = {
       browserName: "chrome",
 
       acceptInsecureCerts: true,
+      "goog: chromeOptions": {
+        args: [
+          "disable-infobars",
+          "disable-popup-blocking",
+          "disable-notifications",
+        ],
+      },
       // If outputDir is provided WebdriverIO can capture driver session logs
       // it is possible to configure which logTypes to include/exclude.
       // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -124,7 +131,6 @@ exports.config = {
       },
     ],
   ],
-
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
   // see also: https://webdriver.io/docs/frameworks
