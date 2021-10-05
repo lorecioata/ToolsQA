@@ -1,4 +1,4 @@
-const cardsNames = {
+const cards = {
   Elements: "Elements",
   Forms: "Forms",
   Alerts: "Alerts, Frame & Windows",
@@ -6,4 +6,4 @@ const cardsNames = {
   Interactions: "Interactions",
   BookStore: "Book Store",
 };
-module.exports = cardsNames;
+module.exports = cards;
